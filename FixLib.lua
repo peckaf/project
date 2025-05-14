@@ -4743,21 +4743,7 @@ function library:CreateSettingsTab(menu)
         library:SetOpen(not library.open)
     end});
 
-  
-
-    mainSection:AddButton({text = 'Rejoin Server', confirm = true, callback = function()
-        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId);
-    end})
-
-    mainSection:AddButton({text = 'Rejoin Game', confirm = true, callback = function()
-        game:GetService("TeleportService"):Teleport(game.PlaceId);
-    end})
-
-    mainSection:AddButton({text = 'Copy Join Script', callback = function()
-        setclipboard(([[game:GetService("TeleportService"):TeleportToPlaceInstance(%s, "%s")]]):format(game.PlaceId, game.JobId))
-    end})
-
-    mainSection:AddButton({text = "Unload", confirm = true,
+       mainSection:AddButton({text = "Unload", confirm = true,
        callback = function(bool)
            if bool then
                library:Unload() 
