@@ -4763,7 +4763,7 @@ function library:CreateSettingsTab(menu)
     local themeSection = settingsTab:AddSeparator('Custom Theme');
     local setByPreset = false
 
-        setByPreset = true
+        setByPreset = false
         for _,v in next, library.themes do
             if v.name == newTheme then
                 for x, d in pairs(library.options) do
