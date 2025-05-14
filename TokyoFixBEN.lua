@@ -4762,8 +4762,7 @@ function library:CreateSettingsTab(menu)
     end
     local themeSection = settingsTab:AddSection('Custom Theme', 2);
     local setByPreset = false
-themeSection:AddList({text = 'Presets', flag = 'preset_theme', values = themeStrings, callback = function(newTheme)
-        if newTheme == "Custom" then return end
+
         setByPreset = true
         for _,v in next, library.themes do
             if v.name == newTheme then
