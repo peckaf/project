@@ -4760,7 +4760,7 @@ function library:CreateSettingsTab(menu)
     for _,v in next, library.themes do
         table.insert(themeStrings, v.name)
     end
-    local themeSection = settingsTab:AddSection('Custom Theme', 2);
+    local themeSection = settingsTab:AddSeparator('Custom Theme');
     local setByPreset = false
 
         setByPreset = true
