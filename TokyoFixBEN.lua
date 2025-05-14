@@ -4756,13 +4756,15 @@ function library:CreateSettingsTab(menu)
 
 
 
+   
     local themeStrings = {"Custom"};
     for _,v in next, library.themes do
         table.insert(themeStrings, v.name)
     end
-    local themeSection = settingsTab:AddSeparator('Custom Theme');
+    local themeSection = settingsTab:AddSection('Custom Theme', 2);
     local setByPreset = false
-
+themeSection:AddList({text = 'Presets', flag = 'preset_theme', values = themeStrings, callback = function(newTheme)
+        if newTheme == "Custom" then return end
         setByPreset = true
         for _,v in next, library.themes do
             if v.name == newTheme then
@@ -4777,8 +4779,10 @@ function library:CreateSettingsTab(menu)
         end
         setByPreset = false
     end}):Select('Nekocheat');
+            end
+        end});
+    end
 
-   
     return settingsTab;
 end
 
