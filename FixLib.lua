@@ -4738,7 +4738,20 @@ function library:CreateSettingsTab(menu)
     end})
 
     refreshConfigs()
+     
+    mainSection:AddBind({text = 'Open / Close', flag = 'togglebind', nomouse = true, noindicator = true, bind = Enum.KeyCode.End, callback = function()
+        library:SetOpen(not library.open)
+    end});
 
+
+    mainSection:AddButton({text = "Unload", confirm = true,
+       callback = function(bool)
+           if bool then
+               library:Unload() 
+           else
+               library:Unload() 
+           end
+       end});
    
     local themeStrings = {"Custom"};
     for _,v in next, library.themes do
